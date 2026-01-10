@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon Test - Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .requirement {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .requirement:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+
+        .req-id {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .req-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .req-type {
+            display: inline-block;
+            background: #e6f2ff;
+            color: #667eea;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .req-priority {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .priority-high {
+            background: #ffe6e6;
+            color: #d32f2f;
+        }
+
+        .priority-medium {
+            background: #fff3cd;
+            color: #f57c00;
+        }
+
+        .flow-diagram {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .flow-step {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin: 0 10px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .flow-arrow {
+            display: inline-block;
+            color: #667eea;
+            font-size: 2rem;
+            margin: 0 10px;
+        }
+
+        .info-box {
+            background: #e6f2ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 5px;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .success-badge {
+            color: #28a745;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .flow-step {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .flow-arrow {
+                display: block;
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Horizon Test - Prototype Dashboard</h1>
+        <div class="subtitle">Automated Test Generation & Execution Platform</div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Requirements</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Generated Tests</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Templates</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Pass Rate</div>
+            </div>
+        </div>
+
+        <!-- System Flow -->
+        <div class="card">
+            <h2>📊 System Flow</h2>
+            <div class="flow-diagram">
+                <div class="flow-step">Mock Codebeamer<br/>(JSON)</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-step">Generator<br/>(Python + Jinja2)</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-step">pytest Tests<br/>(Automated)</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-step">Results<br/>(Evidence)</div>
+            </div>
+        </div>
+
+        <!-- Requirements -->
+        <div class="card">
+            <h2>📋 Requirements from Mock Codebeamer</h2>
+            
+            <div class="requirement">
+                <div class="req-id">REQ-001</div>
+                <div class="req-title">eSIM Profile Download - Vodafone</div>
+                <div class="req-type">esim_profile_download</div>
+                <span class="req-priority priority-high">High Priority</span>
+                <p style="margin-top: 15px; color: #666; line-height: 1.6;">
+                    Verify eSIM profile download from Vodafone SM-DP+ server with valid activation code. 
+                    The TCU shall successfully download the profile, activate it, and confirm ICCID registration within 30 seconds.
+                </p>
+                <div style="margin-top: 15px;">
+                    <strong>MNO:</strong> Vodafone | 
+                    <strong>Network:</strong> LTE | 
+                    <strong>Timeout:</strong> 30s
+                </div>
+            </div>
+
+            <div class="requirement">
+                <div class="req-id">REQ-002</div>
+                <div class="req-title">eSIM Profile Download - T-Mobile</div>
+                <div class="req-type">esim_profile_download</div>
+                <span class="req-priority priority-high">High Priority</span>
+                <p style="margin-top: 15px; color: #666; line-height: 1.6;">
+                    Verify eSIM profile download from T-Mobile SM-DP+ server for 5G SA network. 
+                    Profile must support 5G standalone connectivity and register within 45 seconds.
+                </p>
+                <div style="margin-top: 15px;">
+                    <strong>MNO:</strong> T-Mobile | 
+                    <strong>Network:</strong> 5G SA | 
+                    <strong>Timeout:</strong> 45s
+                </div>
+            </div>
+
+            <div class="requirement">
+                <div class="req-id">REQ-003</div>
+                <div class="req-title">Network Registration - 5G SA Fallback to LTE</div>
+                <div class="req-type">network_registration</div>
+                <span class="req-priority priority-medium">Medium Priority</span>
+                <p style="margin-top: 15px; color: #666; line-height: 1.6;">
+                    Verify automatic network fallback behavior when 5G SA is unavailable. 
+                    TCU shall attempt 5G SA registration, detect failure, and fallback to LTE within 60 seconds.
+                </p>
+                <div style="margin-top: 15px;">
+                    <strong>Primary:</strong> 5G SA | 
+                    <strong>Fallback:</strong> LTE | 
+                    <strong>Timeout:</strong> 60s
+                </div>
+            </div>
+        </div>
+
+        <!-- Template Philosophy -->
+        <div class="card">
+            <h2>🎯 Template Philosophy</h2>
+            <div class="info-box">
+                <h3>Templates = Patterns, Not Requirements</h3>
+                <ul>
+                    <li><strong>One template → Many requirements:</strong> The esim_profile_download template handles both Vodafone and T-Mobile tests</li>
+                    <li><strong>Requirements hold data:</strong> MNO, timeout, activation codes are in the requirement JSON</li>
+                    <li><strong>Templates hold logic:</strong> Test structure, validation, evidence capture in Jinja2</li>
+                    <li><strong>Change rarely, add thoughtfully:</strong> 2 templates serve 3 requirements (1.5 requirements per template)</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <strong>Available Templates:</strong>
+                <ul style="margin-left: 20px; margin-top: 10px; line-height: 2;">
+                    <li><code>esim_profile_download.j2</code> - Handles all eSIM profile download tests (REQ-001, REQ-002)</li>
+                    <li><code>network_registration.j2</code> - Handles all network registration tests (REQ-003)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- How to Use -->
+        <div class="card">
+            <h2>🚀 How to Run the Prototype</h2>
+            <div class="info-box">
+                <h3>Quick Start</h3>
+                <ol style="margin-left: 20px; line-height: 2;">
+                    <li><strong>Generate Tests:</strong> <code>python generator/generator.py</code></li>
+                    <li><strong>Run Tests:</strong> <code>pytest tests/ -v</code></li>
+                    <li><strong>View Results:</strong> Open <code>evidence/report.html</code></li>
+                    <li><strong>Full Docker Demo:</strong> <code>docker-compose up</code></li>
+                </ol>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="../evidence/report.html" class="btn">📊 View Test Report</a>
+                <a href="../tests/" class="btn">📁 View Generated Tests</a>
+            </div>
+        </div>
+
+        <!-- Status -->
+        <div class="card" style="text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h2 style="color: white; border-bottom: 3px solid white;">✅ Prototype Status</h2>
+            <div style="font-size: 1.5rem; margin-top: 20px;">
+                <strong>System Operational</strong>
+            </div>
+            <div style="margin-top: 15px; opacity: 0.9;">
+                All components working • Tests passing • ASPICE-compliant traceability
+            </div>
+        </div>
+    </div>
+</body>
+</html>

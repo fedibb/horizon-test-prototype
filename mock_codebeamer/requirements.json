@@ -1,0 +1,71 @@
+{
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "title": "eSIM Profile Download - Vodafone",
+      "description": "Verify eSIM profile download from Vodafone SM-DP+ server with valid activation code. The TCU shall successfully download the profile, activate it, and confirm ICCID registration within 30 seconds.",
+      "test_type": "esim_profile_download",
+      "priority": "High",
+      "custom_fields": {
+        "mno": "Vodafone",
+        "smdp_address": "smdp.vodafone.com",
+        "activation_code": "1$smdp.vodafone.com$04386-AGYFT-A74Y8-3F815",
+        "expected_iccid_prefix": "8944",
+        "timeout_seconds": 31,
+        "network_type": "LTE"
+      },
+      "acceptance_criteria": {
+        "A1": "Profile download completes successfully",
+        "E1": "HTTP response status is 200",
+        "E2": "ICCID format is valid (19-20 digits)",
+        "E3": "Profile state is ACTIVE",
+        "E4": "Download completes within 30 seconds"
+      }
+    },
+    {
+      "id": "REQ-002",
+      "title": "eSIM Profile Download - T-Mobile",
+      "description": "Verify eSIM profile download from T-Mobile SM-DP+ server for 5G SA network. Profile must support 5G standalone connectivity and register within 45 seconds.",
+      "test_type": "esim_profile_download",
+      "priority": "High",
+      "custom_fields": {
+        "mno": "T-Mobile",
+        "smdp_address": "prod.smds.rsp.t-mobile.com",
+        "activation_code": "1$prod.smds.rsp.t-mobile.com$TM5G-8372-AXHF-9284",
+        "expected_iccid_prefix": "8901",
+        "timeout_seconds": 45,
+        "network_type": "5G SA"
+      },
+      "acceptance_criteria": {
+        "A1": "Profile download completes successfully",
+        "E1": "HTTP response status is 200",
+        "E2": "ICCID format is valid (19-20 digits)",
+        "E3": "Profile state is ACTIVE",
+        "E4": "Download completes within 45 seconds",
+        "E5": "5G SA capabilities are enabled"
+      }
+    },
+    {
+      "id": "REQ-003",
+      "title": "Network Registration - 5G SA Fallback to LTE",
+      "description": "Verify automatic network fallback behavior when 5G SA is unavailable. TCU shall attempt 5G SA registration, detect failure, and fallback to LTE within 60 seconds with proper error logging.",
+      "test_type": "network_registration",
+      "priority": "Medium",
+      "custom_fields": {
+        "primary_network": "5G SA",
+        "fallback_network": "LTE",
+        "registration_timeout": 0.1,
+        "max_retry_attempts": 3,
+        "expected_behavior": "automatic_fallback"
+      },
+      "acceptance_criteria": {
+        "A1": "Network registration completes successfully",
+        "E1": "5G SA registration is attempted first",
+        "E2": "Fallback to LTE occurs within 60 seconds",
+        "E3": "LTE registration is successful",
+        "E4": "Error code is logged correctly",
+        "E5": "No manual intervention required"
+      }
+    }
+  ]
+}

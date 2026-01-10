@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  horizon-test:
+    build: .
+    container_name: horizon-test-prototype
+    volumes:
+      - ./tests:/app/tests
+      - ./evidence:/app/evidence
+      - ./mock_codebeamer:/app/mock_codebeamer
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "8000:8000"
+    command: >
+      sh -c "
+        echo '========================================' &&
+        echo 'HORIZON TEST - Starting Prototype' &&
+        echo '========================================' &&
+        echo '' &&
+        python generator/generator.py &&
+        echo '' &&
+        echo '========================================' &&
+        echo 'Running Tests...' &&
+        echo '========================================' &&
+        echo '' &&
+        pytest tests/ -v --html=evidence/report.html --self-contained-html ;
+        echo '' &&
+        echo '========================================' &&
+        echo 'Starting Dashboard...' &&
+        echo 'Open: http://localhost:8000' &&
+        echo '========================================' &&
+        echo '' &&
+        python -m http.server 8000 --directory dashboard
+      "
