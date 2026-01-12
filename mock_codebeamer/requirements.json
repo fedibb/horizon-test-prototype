@@ -54,7 +54,7 @@
       "custom_fields": {
         "primary_network": "5G SA",
         "fallback_network": "LTE",
-        "registration_timeout": 0.1,
+        "registration_timeout": 60,
         "max_retry_attempts": 3,
         "expected_behavior": "automatic_fallback"
       },
