@@ -234,55 +234,6 @@ Simple HTML dashboard shows:
 
 ---
 
-## Demo Flow (For Meeting Presentation)
-
-### 5-Minute Demo Script
-
-#### Step 1: Show Requirements (30 sec)
-
-Open: `mock_codebeamer/requirements.json`
-
-> "Here are 3 realistic automotive requirements from our Mock Codebeamer. Two eSIM profile downloads (Vodafone and T-Mobile) and one network registration fallback test. Notice the custom fields: MNO, timeout, activation codes - this is the data that varies between tests."
-
-#### Step 2: Show Templates (30 sec)
-
-Open: `generator/templates/esim_profile_download.j2`
-
-> "This is our Jinja2 template. One template handles both Vodafone and T-Mobile tests. The template contains the test logic and structure, while requirements provide the data. This is our philosophy: Templates = Patterns, Not Requirements."
-
-#### Step 3: Generate Tests (1 min)
-
-```bash
-python generator/generator.py
-```
-
-> "The generator reads the JSON, looks at the test_type field, selects the matching template, and generates pytest code automatically. Watch - 3 requirements become 3 complete test files in 2 seconds."
-
-#### Step 4: Show Generated Code (1 min)
-
-Open: `tests/test_req_001.py`
-
-> "Here's the generated pytest file. Full traceability with markers, evidence capture, acceptance criteria validation. This is production-quality code - not a toy. It includes proper fixtures, error handling, and ASPICE-compliant documentation."
-
-#### Step 5: Run Tests (1 min)
-
-```bash
-pytest tests/ -v
-```
-
-> "Now we execute the tests. In this prototype they're simulating API calls, but the structure is identical to production. Green checkmarks - all tests pass. Evidence is captured for each test."
-
-#### Step 6: Show Dashboard (1 min)
-
-Open: http://localhost:8000
-
-> "Here's the dashboard. Shows requirements, generated tests, system flow. In production, this would display real-time test execution status and sync results back to Codebeamer."
-
-#### Step 7: Show CI/CD Config (30 sec)
-
-Open: `.github/workflows/ci-cd.yml`
-
-> "And here's the GitHub Actions workflow. This shows how it runs in production: on every push, tests generate automatically, execute, and results sync back. Zero maintenance - it's SaaS."
 
 ---
 
@@ -433,33 +384,6 @@ python -m http.server 8080 --directory dashboard
    - CLI tool for developers
    - Role-based access control
 
----
-
-## Demo Tips
-
-### What to Show
-
-- Requirements JSON - Real automotive scenarios
-- Template code - Show Jinja2 variables
-- Generation process - Live terminal output
-- Generated tests - Production-quality code
-- Test execution - Green checkmarks
-- Dashboard - Visual overview
-
-### What to Say
-
-> "This prototype demonstrates the complete flow from requirement to execution. The key innovation is template-based generation - one template handles many similar requirements. This is how we achieve 90% reduction in manual test writing while maintaining ASPICE compliance."
-
-### Questions to Expect
-
-**Q: How do you handle edge cases?**
-> "Templates include error handling and validation. Edge cases are captured in acceptance criteria, which drive the test assertions."
-
-**Q: What about maintenance?**
-> "That's the beauty - when we update a template, all tests using it are automatically improved. No need to modify 100+ individual test files."
-
-**Q: How long to implement for real?**
-> "Phase 1 (infrastructure + 5 tests): 4 weeks. Phase 2 (scale to 50+ tests): 4 weeks. Phase 3 (advanced features): 4 weeks. Total: 3 months to production."
 
 ---
 
