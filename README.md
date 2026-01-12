@@ -1,12 +1,12 @@
-# 🚀 Horizon Test - Prototype
+# Horizon Test - Prototype
 
-**ASPICE-Compliant Test Automation Platform**
+ASPICE-Compliant Test Automation Platform
 
 Automated test generation and execution from Codebeamer requirements using Jinja2 templates and pytest.
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Quick Start](#quick-start)
@@ -18,39 +18,39 @@ Automated test generation and execution from Codebeamer requirements using Jinja
 
 ---
 
-## 🎯 Overview
+## Overview
 
-This prototype demonstrates the **Horizon Test** system - an automated platform that:
+This prototype demonstrates the Horizon Test system - an automated platform that:
 
-1. **Reads requirements** from Mock Codebeamer (JSON format)
-2. **Generates pytest tests** automatically using Jinja2 templates
-3. **Executes tests** with full evidence capture
-4. **Displays results** on a web dashboard
+1. Reads requirements from Mock Codebeamer (JSON format)
+2. Generates pytest tests automatically using Jinja2 templates
+3. Executes tests with full evidence capture
+4. Displays results on a web dashboard
 
 ### Key Features
 
-✅ **Template-based generation** - One template → Many tests
-✅ **ASPICE-compliant traceability** - Full requirement → test → result links
-✅ **Evidence capture** - JSON evidence for audit compliance
-✅ **Docker-ready** - One command to run everything
-✅ **CI/CD ready** - GitHub Actions workflow included
+- Template-based generation: One template handles multiple tests
+- ASPICE-compliant traceability: Full requirement to test to result links
+- Evidence capture: JSON evidence for audit compliance
+- Docker-ready: Single command deployment
+- CI/CD ready: GitHub Actions workflow included
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
-### Option 1: Docker (Recommended - One Command!)
+### Option 1: Docker (Recommended)
 
 ```bash
-# Start everything (generates tests, runs them, starts dashboard)
+# Start the complete system
 docker-compose up
 ```
 
-Then open: **http://localhost:8000**
+Then open: http://localhost:8000
 
 ---
 
-### Option 2: Manual (Step-by-Step)
+### Option 2: Manual Installation
 
 #### Step 1: Install Dependencies
 
@@ -130,7 +130,7 @@ Open: **http://localhost:8000**
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 horizon-test-prototype/
@@ -168,7 +168,7 @@ horizon-test-prototype/
 
 ---
 
-## 🔧 How It Works
+## How It Works
 
 ### 1. Mock Codebeamer (JSON)
 
@@ -234,23 +234,23 @@ Simple HTML dashboard shows:
 
 ---
 
-## 🎬 Demo Flow (For Meeting Presentation)
+## Demo Flow (For Meeting Presentation)
 
-### **5-Minute Demo Script**
+### 5-Minute Demo Script
 
-#### **Step 1: Show Requirements (30 sec)**
+#### Step 1: Show Requirements (30 sec)
 
 Open: `mock_codebeamer/requirements.json`
 
 > "Here are 3 realistic automotive requirements from our Mock Codebeamer. Two eSIM profile downloads (Vodafone and T-Mobile) and one network registration fallback test. Notice the custom fields: MNO, timeout, activation codes - this is the data that varies between tests."
 
-#### **Step 2: Show Templates (30 sec)**
+#### Step 2: Show Templates (30 sec)
 
 Open: `generator/templates/esim_profile_download.j2`
 
 > "This is our Jinja2 template. One template handles both Vodafone and T-Mobile tests. The template contains the test logic and structure, while requirements provide the data. This is our philosophy: Templates = Patterns, Not Requirements."
 
-#### **Step 3: Generate Tests (1 min)**
+#### Step 3: Generate Tests (1 min)
 
 ```bash
 python generator/generator.py
@@ -258,13 +258,13 @@ python generator/generator.py
 
 > "The generator reads the JSON, looks at the test_type field, selects the matching template, and generates pytest code automatically. Watch - 3 requirements become 3 complete test files in 2 seconds."
 
-#### **Step 4: Show Generated Code (1 min)**
+#### Step 4: Show Generated Code (1 min)
 
 Open: `tests/test_req_001.py`
 
 > "Here's the generated pytest file. Full traceability with markers, evidence capture, acceptance criteria validation. This is production-quality code - not a toy. It includes proper fixtures, error handling, and ASPICE-compliant documentation."
 
-#### **Step 5: Run Tests (1 min)**
+#### Step 5: Run Tests (1 min)
 
 ```bash
 pytest tests/ -v
@@ -272,13 +272,13 @@ pytest tests/ -v
 
 > "Now we execute the tests. In this prototype they're simulating API calls, but the structure is identical to production. Green checkmarks - all tests pass. Evidence is captured for each test."
 
-#### **Step 6: Show Dashboard (1 min)**
+#### Step 6: Show Dashboard (1 min)
 
 Open: http://localhost:8000
 
 > "Here's the dashboard. Shows requirements, generated tests, system flow. In production, this would display real-time test execution status and sync results back to Codebeamer."
 
-#### **Step 7: Show CI/CD Config (30 sec)**
+#### Step 7: Show CI/CD Config (30 sec)
 
 Open: `.github/workflows/ci-cd.yml`
 
@@ -286,7 +286,7 @@ Open: `.github/workflows/ci-cd.yml`
 
 ---
 
-## 📊 System Architecture
+## System Architecture
 
 ```
 ┌─────────────────────┐
@@ -315,16 +315,16 @@ Open: `.github/workflows/ci-cd.yml`
 
 ---
 
-## 🔑 Key Concepts
+## Key Concepts
 
 ### Template Philosophy
 
-**Templates = Patterns, Not Requirements**
+Templates = Patterns, Not Requirements
 
-- ✅ One template → Many requirements
-- ✅ Requirements hold **data** (MNO, timeout, endpoints)
-- ✅ Templates hold **logic** (test structure, validation)
-- ✅ Change rarely, add thoughtfully
+- One template handles many requirements
+- Requirements hold data (MNO, timeout, endpoints)
+- Templates hold logic (test structure, validation)
+- Change rarely, add thoughtfully
 
 **Example:**
 - `esim_profile_download.j2` handles REQ-001 (Vodafone) AND REQ-002 (T-Mobile)
@@ -333,7 +333,7 @@ Open: `.github/workflows/ci-cd.yml`
 
 ### Traceability
 
-**ASPICE-Compliant Full Chain:**
+ASPICE-Compliant Full Chain:
 
 ```
 Requirement (REQ-001)
@@ -349,13 +349,13 @@ Back to Codebeamer (in production)
 
 ---
 
-## 🛠️ Requirements
+## Requirements
 
 ### Software
 
-- **Python 3.12+**
-- **Docker Desktop** (optional but recommended)
-- **Git**
+- Python 3.12+
+- Docker Desktop (optional but recommended)
+- Git
 
 ### Python Packages (in requirements.txt)
 
@@ -366,7 +366,7 @@ Back to Codebeamer (in production)
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Problem: `docker-compose up` fails
 
@@ -404,7 +404,7 @@ python -m http.server 8080 --directory dashboard
 
 ---
 
-## 📝 Next Steps (Beyond Prototype)
+## Next Steps (Beyond Prototype)
 
 ### Production Enhancements:
 
@@ -435,16 +435,16 @@ python -m http.server 8080 --directory dashboard
 
 ---
 
-## 🎯 Demo Tips
+## Demo Tips
 
 ### What to Show
 
-✅ **Requirements JSON** - Real automotive scenarios
-✅ **Template code** - Show Jinja2 variables
-✅ **Generation process** - Live terminal output
-✅ **Generated tests** - Production-quality code
-✅ **Test execution** - Green checkmarks
-✅ **Dashboard** - Visual overview
+- Requirements JSON - Real automotive scenarios
+- Template code - Show Jinja2 variables
+- Generation process - Live terminal output
+- Generated tests - Production-quality code
+- Test execution - Green checkmarks
+- Dashboard - Visual overview
 
 ### What to Say
 
@@ -463,16 +463,16 @@ python -m http.server 8080 --directory dashboard
 
 ---
 
-## 📧 Contact
+## Contact
 
 For questions or demo requests, contact the Horizon Test team.
 
 ---
 
-## 📄 License
+## License
 
 Prototype for demonstration purposes.
 
 ---
 
-**Built with ❤️ for Horizon Connect Meeting**
+Built for Horizon Connect Meeting

@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f5f7fa;
             min-height: 100vh;
             padding: 20px;
         }
@@ -24,19 +24,17 @@
         }
 
         h1 {
-            color: white;
+            color: #2c3e50;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
             font-size: 2.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .subtitle {
-            color: white;
+            color: #7f8c8d;
             text-align: center;
             margin-bottom: 40px;
-            font-size: 1.2rem;
-            opacity: 0.9;
+            font-size: 1.1rem;
         }
 
         .card {
@@ -48,10 +46,10 @@
         }
 
         .card h2 {
-            color: #667eea;
+            color: #2c3e50;
             margin-bottom: 20px;
             font-size: 1.8rem;
-            border-bottom: 3px solid #667eea;
+            border-bottom: 2px solid #3498db;
             padding-bottom: 10px;
         }
 
@@ -63,23 +61,25 @@
         }
 
         .stat-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: white;
+            color: #2c3e50;
             padding: 25px;
-            border-radius: 12px;
+            border-radius: 8px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
         }
 
         .stat-number {
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 10px;
+            color: #3498db;
         }
 
         .stat-label {
             font-size: 1rem;
-            opacity: 0.9;
+            color: #7f8c8d;
         }
 
         .requirement {
@@ -148,10 +148,10 @@
 
         .flow-step {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #3498db;
             color: white;
             padding: 15px 25px;
-            border-radius: 8px;
+            border-radius: 6px;
             margin: 0 10px;
             font-weight: 600;
             position: relative;
@@ -159,21 +159,21 @@
 
         .flow-arrow {
             display: inline-block;
-            color: #667eea;
+            color: #7f8c8d;
             font-size: 2rem;
             margin: 0 10px;
         }
 
         .info-box {
-            background: #e6f2ff;
-            border-left: 4px solid #667eea;
+            background: #ecf0f1;
+            border-left: 4px solid #3498db;
             padding: 20px;
             margin: 20px 0;
-            border-radius: 5px;
+            border-radius: 4px;
         }
 
         .info-box h3 {
-            color: #667eea;
+            color: #2c3e50;
             margin-bottom: 10px;
         }
 
@@ -184,19 +184,21 @@
 
         .btn {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #3498db;
             color: white;
             padding: 12px 30px;
-            border-radius: 8px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
             margin: 10px 5px;
             transition: all 0.3s;
+            border: none;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            background: #2980b9;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
 
         .success-badge {
@@ -223,8 +225,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>🚀 Horizon Test - Prototype Dashboard</h1>
-        <div class="subtitle">Automated Test Generation & Execution Platform</div>
+        <h1>Horizon Test - Dashboard</h1>
+        <div class="subtitle">Test Automation System</div>
 
         <!-- Stats -->
         <div class="stats">
@@ -248,7 +250,7 @@
 
         <!-- System Flow -->
         <div class="card">
-            <h2>📊 System Flow</h2>
+            <h2>System Flow</h2>
             <div class="flow-diagram">
                 <div class="flow-step">Mock Codebeamer<br/>(JSON)</div>
                 <span class="flow-arrow">→</span>
@@ -262,7 +264,7 @@
 
         <!-- Requirements -->
         <div class="card">
-            <h2>📋 Requirements from Mock Codebeamer</h2>
+            <h2>Requirements from Mock Codebeamer</h2>
             
             <div class="requirement">
                 <div class="req-id">REQ-001</div>
@@ -315,7 +317,7 @@
 
         <!-- Template Philosophy -->
         <div class="card">
-            <h2>🎯 Template Philosophy</h2>
+            <h2>Template Philosophy</h2>
             <div class="info-box">
                 <h3>Templates = Patterns, Not Requirements</h3>
                 <ul>
@@ -337,7 +339,7 @@
 
         <!-- How to Use -->
         <div class="card">
-            <h2>🚀 How to Run the Prototype</h2>
+            <h2>How to Run the Prototype</h2>
             <div class="info-box">
                 <h3>Quick Start</h3>
                 <ol style="margin-left: 20px; line-height: 2;">
@@ -349,19 +351,19 @@
             </div>
 
             <div style="text-align: center; margin-top: 30px;">
-                <a href="../evidence/report.html" class="btn">📊 View Test Report</a>
-                <a href="../tests/" class="btn">📁 View Generated Tests</a>
+                <a href="../evidence/report.html" class="btn">View Test Report</a>
+                <a href="../tests/" class="btn">View Generated Tests</a>
             </div>
         </div>
 
         <!-- Status -->
-        <div class="card" style="text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-            <h2 style="color: white; border-bottom: 3px solid white;">✅ Prototype Status</h2>
+        <div class="card" style="text-align: center; background: white; color: #2c3e50; border: 2px solid #27ae60;">
+            <h2 style="color: #27ae60; border-bottom: 2px solid #27ae60;">System Status</h2>
             <div style="font-size: 1.5rem; margin-top: 20px;">
-                <strong>System Operational</strong>
+                <strong>Operational</strong>
             </div>
-            <div style="margin-top: 15px; opacity: 0.9;">
-                All components working • Tests passing • ASPICE-compliant traceability
+            <div style="margin-top: 15px; color: #7f8c8d;">
+                All components working - Tests passing - ASPICE-compliant traceability
             </div>
         </div>
     </div>
